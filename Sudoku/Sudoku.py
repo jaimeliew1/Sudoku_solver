@@ -8,7 +8,7 @@ import numpy as np
 from itertools import product
 from copy import deepcopy
 import time
-
+from termcolor import colored
 
 
 def format_sudoku(X):
@@ -21,6 +21,19 @@ def format_sudoku(X):
     out = out.replace('0', '_')
     return out
 
+def print_sudoku(X, colormask=None):
+    for i, row in enumerate(X):
+        for j, x in enumerate(row):
+            x_str = ' _ ' if x==0 else f' {str(x)} '
+            if colormask is not None and colormask[i, j] != 0:
+                print(colored(x_str, 'red'), end='')
+            else:
+                print(x_str, end='')
+            if j in [2, 5]:
+                print('|', end='')
+        print()
+        if i in [2, 5]:
+            print('-'*28)
 
 
 
