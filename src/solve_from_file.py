@@ -4,7 +4,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-filename = 'sudoku_puzzle.txt'
+filename = 'data/sudoku_puzzle.txt'
 with open(filename) as f:
     X = Sudoku.fromString(f.read(), empty='_')
 
